@@ -1,0 +1,15 @@
+tenets:
+  - name: goto-statement
+    doc: |
+      Find uses of goto.
+    bots:
+      codelingo/clair:
+        comments: goto statments have a niche use and can obscure the flow of a program.
+    query: |
+      import (
+        codelingo/ast/go/0.0.0
+      )
+
+      @ clair.comment
+      go.branch_stmt({depth: any}):
+        token: "goto"
