@@ -11,11 +11,13 @@ tenets:
         @ review.comment
         cpp.case_stmt{depth: [0:2]}:
           cpp.element
-          !cpp.return_stmt({depth: [0:0]})
-          !cpp.goto_stmt({depth: [0:0]})
-          !cpp.break_stmt
+          exclude:
+            cpp.return_stmt({depth: [0:0]})
+            cpp.goto_stmt({depth: [0:0]})
+            cpp.break_stmt
           or:
             cpp.if_stmt:
               cpp.compound_stmt:
-                !cpp.break_stmt
+                exclude:
+                  cpp.break_stmt
               cpp.compound_stmt

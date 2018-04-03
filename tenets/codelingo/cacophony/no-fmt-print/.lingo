@@ -24,7 +24,8 @@ tenets:
             go.basic_lit:
               value: "fmt"
           go.import_spec({depth: any}): # unaliased import
-            !go.ident
+            exclude:
+              go.ident
             go.basic_lit:
               value: "fmt"
               value: $packageName

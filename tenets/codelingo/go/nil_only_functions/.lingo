@@ -25,7 +25,9 @@ tenets:
               name: "nil"
 
         # exclude functions with anything but "return nil"
-        !go.return_stmt({depth: any}):
-          go.results:
-            !go.ident:
-              name: "nil"
+        exclude:
+          go.return_stmt({depth: any}):
+            go.results:
+              exclude:
+                go.ident:
+                  name: "nil"

@@ -81,16 +81,17 @@ tenets:
               type: /ref.*/
               cpp.identifier_name:
                 identifier_token: $varName
-        !or:
-          cpp.delete_statement({depth: any}):
-            cpp.variable:
-              cpp.identifier_name:
-                identifier_token: $varName
-          cpp.method_call:
-            cpp.variable:
-              cpp.identifier_name:
-                identifier_token: $varName
-          cpp.function_call:
-            cpp.variable:
-              cpp.identifier_name:
-                identifier_token: $varName
+        exclude:
+          or:
+            cpp.delete_statement({depth: any}):
+              cpp.variable:
+                cpp.identifier_name:
+                  identifier_token: $varName
+            cpp.method_call:
+              cpp.variable:
+                cpp.identifier_name:
+                  identifier_token: $varName
+            cpp.function_call:
+              cpp.variable:
+                cpp.identifier_name:
+                  identifier_token: $varName
