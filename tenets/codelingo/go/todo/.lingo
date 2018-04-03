@@ -1,5 +1,5 @@
 tenets:
-  - name: todo-comments:
+  - name: todo-comments
     doc: |
       Find comments containing TODO.
 
