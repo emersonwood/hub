@@ -13,6 +13,6 @@ tenets:
 
       @ review.comment
       golint.lint_rule({depth: any}):
-        @ clair.vars.text
+        @ review.vars.text
         text
 
