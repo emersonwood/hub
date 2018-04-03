@@ -1,5 +1,5 @@
 tenets:
-    name: redundant-defer-wraps
+  - name: redundant-defer-wraps
     doc: |
       Finds redundant defer wrapping that could be simplified into a single line.
 
