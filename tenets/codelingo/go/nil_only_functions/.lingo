@@ -3,14 +3,14 @@ tenets:
     doc: |
       Find functions that only return nil.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: Functions that don't return a non-nil value can be refactored without a reutrn type.
     query: |
       import (
         codelingo/ast/go/0.0.0
       )
 
-      @ clair.comment
+      @ review.comment
       go.func_decl({depth: any}):
 
         # only include functions with at least one return value

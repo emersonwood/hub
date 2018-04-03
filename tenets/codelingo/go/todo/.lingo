@@ -5,13 +5,13 @@ tenets:
 
       TODOs should be tracked in a place outside of the code to ensure they aren't forgotten.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: Make sure you add this TODO as an issue, milestone, or in your project management tool; eg. Trello.
     query: |
       import (
         codelingo/ast/go/0.0.0
       )
 
-      @ clair.comment
+      @ review.comment
       go.comment({depth: any}):
         name: /(?i)(^|\s)TODO.*/

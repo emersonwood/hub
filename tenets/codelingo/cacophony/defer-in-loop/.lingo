@@ -6,7 +6,7 @@ tenets:
       Defers are only executed when a function returns. Using them inside loops is often a mistake since they will
       build up and can be executed later than expected. The defers will never get called if the loop does not exit.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: Defer is inside a loop. These will build up and can be executed later than expected.
     query: |
       import (
@@ -14,5 +14,5 @@ tenets:
       )
 
       go.for_stmt({depth: any}):
-        @ clair.comment
+        @ review.comment
         go.defer_stmt({depth: any}) # TODO: exclude where intermediate parent is a go.func_lit

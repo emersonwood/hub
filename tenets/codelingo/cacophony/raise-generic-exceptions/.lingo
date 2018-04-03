@@ -7,7 +7,7 @@ tenets:
       Raising generic exceptions requires them to be caught, which will also catch all other exception types lower in the hierarchy.
       See the full hierarchy of the built in exceptions here: https://docs.python.org/3/library/exceptions.html#exception-hierarchy.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: Exception type is too generic. Use a more specific exception: https://docs.python.org/3/library/exceptions.html#exception-hierarchy.
     query: |
       import (
@@ -15,7 +15,7 @@ tenets:
       )
 
       python36.raise({depth: any}):
-        @ clair.comment
+        @ review.comment
         python36.call:
           python36.name:
             id: "Exception"

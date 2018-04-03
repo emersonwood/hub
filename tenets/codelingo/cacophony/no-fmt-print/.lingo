@@ -8,7 +8,7 @@ tenets:
       2. log messages can include additional info; eg. timestamps, source code location.
       3. log messages will never be interleaved.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: |
           Use log.Print* instead. The log package is better suited for logging.
     query: |
@@ -28,7 +28,7 @@ tenets:
             go.basic_lit:
               value: "fmt"
               value: $packageName
-        @ clair.comment
+        @ review.comment
         go.call_expr({depth: any}):
           go.selector_expr:
             go.ident:
