@@ -3,12 +3,12 @@ tenets:
     doc: |
       Find instances of 'errors.New(fmt.Sprintf(...))'.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: Should replace errors.New(fmt.Sprintf(...)) with errors.Errorf(...).
     query: |
       import codelingo/ast/go/0.0.0
   
-      @ clair.comment
+      @ review.comment
       go.call_expr({depth: any}):
         go.selector_expr:
           go.ident:

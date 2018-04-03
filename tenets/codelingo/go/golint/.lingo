@@ -3,7 +3,7 @@ tenets:
     doc: |
       Find all go linter rules.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: |
           {{text}}
     query: |
@@ -11,7 +11,7 @@ tenets:
         codelingo/ast/golint/0.0.0
       )
 
-      @ clair.comment
+      @ review.comment
       golint.lint_rule({depth: any}):
         @ clair.vars.text
         text

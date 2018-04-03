@@ -5,7 +5,7 @@ tenets:
 
       A single line defer is cleaner and easier to read than one wrapped in a function.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: Redundant defer wrapping. This can be a single line defer instead, eg. defer log.Println("done").
     query: |
       import (
@@ -18,6 +18,6 @@ tenets:
             go.block_stmt:
               go.list:
                 child_count: 1
-                @ clair.comment
+                @ review.comment
                 go.expr_stmt:
                   go.call_expr

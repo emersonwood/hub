@@ -3,12 +3,12 @@ tenets:
     doc: |
       Find empty slice assignments.
     bots:
-      codelingo/clair:
+      codelingo/review:
         comments: You should declare this using "var" not ":=" see t https://github.com/golang/go/wiki/CodeReviewComments#declaring-empty-slices
     query: |
       import codelingo/ast/go/0.0.0
   
-      @ clair.comment
+      @ review.comment
       go.assign_stmt({depth: any}):
         token: ":="
         go.rhs:
