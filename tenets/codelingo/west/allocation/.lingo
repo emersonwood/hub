@@ -57,7 +57,7 @@ tenets:
         cpp.variable:
           cpp.identifier_name:
             identifier_token: $varName
-      or:
+      any_of:
         cpp.element:
           cpp.variable({depth: any}):
               cpp.identifier_name:
@@ -82,7 +82,7 @@ tenets:
               cpp.identifier_name:
                 identifier_token: $varName
         exclude:
-          or:
+          any_of:
             cpp.delete_statement({depth: any}):
               cpp.variable:
                 cpp.identifier_name:

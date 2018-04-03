@@ -15,7 +15,7 @@ tenets:
             cpp.return_stmt({depth: [0:0]})
             cpp.goto_stmt({depth: [0:0]})
             cpp.break_stmt
-          or:
+          any_of:
             cpp.if_stmt:
               cpp.compound_stmt:
                 exclude:
