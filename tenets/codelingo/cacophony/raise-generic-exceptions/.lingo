@@ -8,7 +8,8 @@ tenets:
       See the full hierarchy of the built in exceptions here: https://docs.python.org/3/library/exceptions.html#exception-hierarchy.
     bots:
       codelingo/review:
-        comments: Exception type is too generic. Use a more specific exception: https://docs.python.org/3/library/exceptions.html#exception-hierarchy.
+        comments: |
+          Exception type is too generic. Use a more specific exception: https://docs.python.org/3/library/exceptions.html#exception-hierarchy.
     query: |
       import (
         codelingo/ast/python36/0.0.0
