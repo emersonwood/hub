@@ -14,5 +14,8 @@ tenets:
       )
 
       go.for_stmt({depth: any}):
-        @ review.comment
-        go.defer_stmt({depth: any}) # TODO: exclude where intermediate parent is a go.func_lit
+        exclude:
+          go.func_lit({depth: any}):
+            include({depth: any}):
+              @ review.comment
+              go.defer_stmt({depth: any})

@@ -57,11 +57,11 @@ tenets:
         cpp.variable:
           cpp.identifier_name:
             identifier_token: $varName
-      or:
+      any_of:
         cpp.element:
           cpp.variable({depth: any}):
-              cpp.identifier_name:
-                identifier_token: $varName
+            cpp.identifier_name:
+              identifier_token: $varName
         cpp.variable:
           cpp.identifier_name:
             identifier_token: $varName
@@ -81,16 +81,17 @@ tenets:
               type: /ref.*/
               cpp.identifier_name:
                 identifier_token: $varName
-        !or:
-          cpp.delete_statement({depth: any}):
-            cpp.variable:
-              cpp.identifier_name:
-                identifier_token: $varName
-          cpp.method_call:
-            cpp.variable:
-              cpp.identifier_name:
-                identifier_token: $varName
-          cpp.function_call:
-            cpp.variable:
-              cpp.identifier_name:
-                identifier_token: $varName
+        exclude:
+          any_of:
+            cpp.delete_statement({depth: any}):
+              cpp.variable:
+                cpp.identifier_name:
+                  identifier_token: $varName
+            cpp.method_call:
+              cpp.variable:
+                cpp.identifier_name:
+                  identifier_token: $varName
+            cpp.function_call:
+              cpp.variable:
+                cpp.identifier_name:
+                  identifier_token: $varName
