@@ -7,7 +7,7 @@ tenets:
         comments: Functions that don't return a non-nil value can be refactored without a reutrn type.
     query: |
       import (
-        codelingo/ast/go/0.0.0
+        codelingo/ast/go
       )
 
       @ review.comment

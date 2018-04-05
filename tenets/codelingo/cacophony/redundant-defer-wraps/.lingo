@@ -9,7 +9,7 @@ tenets:
         comments: Redundant defer wrapping. This can be a single line defer instead, eg. defer log.Println("done").
     query: |
       import (
-        codelingo/ast/go/0.0.0
+        codelingo/ast/go
       )
 
       go.defer_stmt({depth: any}):

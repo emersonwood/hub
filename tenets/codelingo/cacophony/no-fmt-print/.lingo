@@ -13,7 +13,7 @@ tenets:
           Use log.Print* instead. The log package is better suited for logging.
     query: |
       import (
-        codelingo/ast/go/0.0.0
+        codelingo/ast/go
       )
 
       go.file({depth: any}):

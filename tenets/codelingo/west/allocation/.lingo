@@ -5,7 +5,7 @@ tenets:
       codelingo/review:
         comment: This was created with new, and should be deleted not freed.
     query: |
-      import codelingo/ast/cpp/0.0.0
+      import codelingo/ast/cpp
 
       cpp.block:
         cpp.assignment_statement({depth: any}):
@@ -27,7 +27,7 @@ tenets:
       codelingo/review:
         comment: This was obtained with malloc, and should be freed not deleted.
     query: |
-      import codelingo/ast/cpp/0.0.0
+      import codelingo/ast/cpp
 
       cpp.block:
         cpp.assignment_statement({depth: any}):
@@ -51,7 +51,7 @@ tenets:
       codelingo/review:
         comment: This object has already been deleted.
     query: |
-      import codelingo/ast/cpp/0.0.0
+      import codelingo/ast/cpp
 
       cpp.delete_statement:
         cpp.variable:
@@ -72,7 +72,7 @@ tenets:
       codelingo/review:
         comment: This object is neither deleted nor passed to a method that could delete it.
     query: |
-      import codelingo/ast/cpp/0.0.0
+      import codelingo/ast/cpp
 
       cpp.method_declaration({depth: any}):
         cpp.assignment_statement({depth: any}):
