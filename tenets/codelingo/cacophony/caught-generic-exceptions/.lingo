@@ -12,7 +12,7 @@ tenets:
           Caught exception is too generic. Catch a more specific exception(s): https://docs.python.org/3/library/exceptions.html#exception-hierarchy.
     query: |
       import (
-        codelingo/ast/python36/0.0.0
+        codelingo/ast/python36
       )
 
       python36.try({depth: any}):

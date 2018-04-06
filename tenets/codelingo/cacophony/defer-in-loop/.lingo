@@ -10,7 +10,7 @@ tenets:
         comments: Defer is inside a loop. These will build up and can be executed later than expected.
     query: |
       import (
-        codelingo/ast/go/0.0.0
+        codelingo/ast/go
       )
 
       go.for_stmt({depth: any}):

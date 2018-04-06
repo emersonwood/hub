@@ -12,7 +12,7 @@ tenets:
           Exception type is too generic. Use a more specific exception: https://docs.python.org/3/library/exceptions.html#exception-hierarchy.
     query: |
       import (
-        codelingo/ast/python36/0.0.0
+        codelingo/ast/python36
       )
 
       python36.raise({depth: any}):

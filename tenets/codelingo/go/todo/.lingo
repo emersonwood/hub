@@ -9,7 +9,7 @@ tenets:
         comments: Make sure you add this TODO as an issue, milestone, or in your project management tool; eg. Trello.
     query: |
       import (
-        codelingo/ast/go/0.0.0
+        codelingo/ast/go
       )
 
       @ review.comment

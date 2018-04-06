@@ -10,7 +10,7 @@ tenets:
         comments: Remove debug prints as they make the program unnecessarily verbose and can output sensitive information.
     query: |
       import (
-        codelingo/ast/python36/0.0.0
+        codelingo/ast/python36
       )
 
       @ review.comment

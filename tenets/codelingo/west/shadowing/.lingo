@@ -5,7 +5,7 @@ tenets:
       codelingo/review:
         comment: This assignment may corrupt the parameter. Consider using another variable instead.
     query: |
-      import codelingo/ast/cpp/0.0.0
+      import codelingo/ast/cpp
 
       cpp.function_decl({depth: any}):
         cpp.parm_decl:
@@ -22,7 +22,7 @@ tenets:
       codelingo/review:
         comment: This assignment may corrupt the variable. Consider creating another variable instead.
     query: |
-      import codelingo/ast/cpp/0.0.0
+      import codelingo/ast/cpp
 
       cpp.var_decl({depth: any}):
         cpp.parm_decl:
