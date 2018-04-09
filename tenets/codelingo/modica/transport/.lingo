@@ -1,0 +1,73 @@
+tenets:
+  - name: transport-template
+    doc: Find transport controllers and actions that violate naming conventions
+    query: |
+      import codelingo/ast/php
+
+      php.dir({depth: any}):
+        php.file:
+          @ process.vars.filename
+          filename
+          php.namespace:
+            @ process.vars.namespace
+            name
+          php.class({depth: any}):
+            @ process.vars.controller
+            name
+            @review.comment
+            php.method:
+              @ process.vars.action
+              name
+    bots:
+    - codelingo/review:
+        comments: |
+          Controller class and method name in files named '<controller_category>/<controller_name>/<actionName>.php', should match :
+
+          namespace Omni\Controller\<Controller_Category>;
+          class <ControllerName>Controller extends Controller {
+            public function <actionName>Action() {}
+          }
+    - codelingo/post-processing-filter:
+        language: go
+        body: |
+          import "regexp"
+
+          func(var map[string]interface{}) bool {
+            filenameRegex := regexp.MustCompile(`.*/[_a-z]*)/([_a-z]*)/([_a-z]*).php`)
+            filenameMatch := regexp.FindStringSubmatch(vars["filename"])
+            if len(filenameMatch) == 0 {
+              return false
+            }
+
+            namespaceRegex := regexp.MustCompile(`\\([a-zA-Z]*)$`)
+            namespaceMatch := regexp.FindStringSubmatch(vars["namespace"])
+            if len(namespaceMatch) == 0 {
+              return false
+            }
+
+            controllerRegex := regexp.MustCompile(`^([a-zA-Z]*)Controller$`)
+            controllerMatch := regexp.FindStringSubmatch(vars["controller"])
+            if len(controllerMatch) == 0 {
+              return false
+            }
+
+            actionRegex := regexp.MustCompile(`^([a-z][a-zA-Z]*)Action$`)
+            actionMatch := regexp.FindStringSubmatch(vars["action"])
+            if len(actionMatch) == 0 {
+              return false
+            }
+
+            if filenameMatch[1] != snakeCase(namespaceMatch[1]) {
+              return false
+            }
+
+            if filenameMatch[2] != snakeCase(controllerMatch[1]) {
+              return false
+            }
+
+            if filenameMatch[3] != snakeCase(actionMatch[1]) {
+              return false
+            }
+
+            return true
+          }
