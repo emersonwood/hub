@@ -37,7 +37,6 @@ tenets:
             "errors"
             "regexp"
             "strings"
-            "fmt"
           )
 
           func Filter(results map[string]interface{}) (bool, error) {
@@ -92,20 +91,14 @@ tenets:
 
 
             if !snakequal(filenameMatch[1], namespaceMatch[1]) {
-              fmt.Println("namespace:")
-              fmt.Println(filenameMatch[1] + " != " + namespaceMatch[1])
               return true, nil
             }
 
             if !snakequal(filenameMatch[2], controllerMatch[1]) {
-              fmt.Println("controller:")
-              fmt.Println(filenameMatch[2] + " != " + controllerMatch[1])
               return true, nil
             }
 
             if !snakequal(filenameMatch[3], actionMatch[1]) {
-              fmt.Println("action:")
-              fmt.Println(filenameMatch[3] + " != " + actionMatch[1])
               return true, nil
             }
 
