@@ -3,3 +3,4 @@ bundles:
   - cacophony
   - go
   - west
+  - modica
