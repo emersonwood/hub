@@ -6,20 +6,21 @@ tenets:
 
       php.dir({depth: any}):
         php.file:
-          @ process.vars.filename
+          @ filter.filename
           filename
-          php.namespace:
-            @ process.vars.namespace
-            name
-          php.class({depth: any}):
-            @ process.vars.controller
-            name
-            @review.comment
-            php.method:
-              @ process.vars.action
+          php.stmt_namespace:
+            php.name:
+              @ filter.namespace
               name
+            php.stmt_class:
+              @ filter.controller
+              name
+              @review.comment
+              php.stmt_classmethod:
+                @ filter.action
+                name
     bots:
-    - codelingo/review:
+      codelingo/review:
         comments: |
           Controller class and method name in files named '<controller_category>/<controller_name>/<actionName>.php', should match :
 
@@ -27,47 +28,84 @@ tenets:
           class <ControllerName>Controller extends Controller {
             public function <actionName>Action() {}
           }
-    - codelingo/post-processing-filter:
+      codelingo/filter:
         language: go
         body: |
-          import "regexp"
+          package main
 
-          func(var map[string]interface{}) bool {
-            filenameRegex := regexp.MustCompile(`.*/[_a-z]*)/([_a-z]*)/([_a-z]*).php`)
-            filenameMatch := regexp.FindStringSubmatch(vars["filename"])
+          import (
+            "errors"
+            "regexp"
+            "strings"
+          )
+
+          func Filter(results map[string]interface{}) (bool, error) {
+            filename, ok := results["name"].(string)
+            if !ok {
+              return false, errors.New("No filename value") 
+            }
+
+            ns, ok := results["namespace"].(string)
+            if !ok {
+              return false, errors.New("No namespace value") 
+            }
+
+            // Namespace stored with extra slash
+            parts := strings.Split(ns, "\\\\")
+            namespace := parts[len(parts)-1]
+
+            controller, ok := results["controller"].(string)
+            if !ok {
+              return false, errors.New("No controller value") 
+            }
+
+            action, ok := results["action"].(string)
+            if !ok {
+              return false, errors.New("No action value") 
+            }
+
+            filenameRegex := regexp.MustCompile(`.*/([_a-z]*)/([_a-z]*)/([_a-z]*).php`)
+            filenameMatch := filenameRegex.FindStringSubmatch(filename)
             if len(filenameMatch) == 0 {
-              return false
+              return false, errors.New("Failed filename match")
             }
 
             namespaceRegex := regexp.MustCompile(`\\([a-zA-Z]*)$`)
-            namespaceMatch := regexp.FindStringSubmatch(vars["namespace"])
+            namespaceMatch := namespaceRegex.FindStringSubmatch(namespace)
             if len(namespaceMatch) == 0 {
-              return false
+              return false, errors.New("Failed namespace match")
             }
 
             controllerRegex := regexp.MustCompile(`^([a-zA-Z]*)Controller$`)
-            controllerMatch := regexp.FindStringSubmatch(vars["controller"])
+            controllerMatch := controllerRegex.FindStringSubmatch(controller)
             if len(controllerMatch) == 0 {
-              return false
+              return false, errors.New("Failed controller match")
             }
+
 
             actionRegex := regexp.MustCompile(`^([a-z][a-zA-Z]*)Action$`)
-            actionMatch := regexp.FindStringSubmatch(vars["action"])
+            actionMatch := actionRegex.FindStringSubmatch(action)
             if len(actionMatch) == 0 {
-              return false
+              return false, errors.New("Failed action match")
             }
 
-            if filenameMatch[1] != snakeCase(namespaceMatch[1]) {
-              return false
+
+            if !snakequal(filenameMatch[1], namespaceMatch[1]) {
+              return true, nil
             }
 
-            if filenameMatch[2] != snakeCase(controllerMatch[1]) {
-              return false
+            if !snakequal(filenameMatch[2], controllerMatch[1]) {
+              return true, nil
             }
 
-            if filenameMatch[3] != snakeCase(actionMatch[1]) {
-              return false
+            if !snakequal(filenameMatch[3], actionMatch[1]) {
+              return true, nil
             }
 
-            return true
+            return false, nil
+          }
+
+          func snakequal(snake, camel string) bool {
+            cutSnake := strings.Replace(snake, "_", "", -1)
+            return strings.EqualFold(cutSnake, camel)
           }
