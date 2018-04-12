@@ -1,5 +1,5 @@
 name: github-comment
-description: Creates a comment on a github pull request for a given file and line.
+description: Create a comment on a github pull request for a given file and line.
 parameters: 
   comment
   line

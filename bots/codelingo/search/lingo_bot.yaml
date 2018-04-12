@@ -1,4 +1,4 @@
 name: search
-description: Run a CLQL search, and returns a value for each fact and property for each match.
+description: Run a CLQL search, and return a value for each fact and property for each match.
 parameters:
   search-query

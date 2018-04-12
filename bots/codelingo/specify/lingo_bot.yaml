@@ -1,4 +1,4 @@
 name: specify
-description: Pulls decorated values from result trees.
+description: Pull decorated values from result trees.
 parameters:
   result
