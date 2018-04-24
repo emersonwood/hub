@@ -1,6 +1,4 @@
 description: CodeLingo Team
 bundles:
-  - cacophony
+  - default
   - go
-  - west
-  - modica

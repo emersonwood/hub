@@ -1,17 +1,10 @@
-# Tenets Repository
+# Tenet Bundles
 
-This repository hosts published Tenets that can be imported as Tenet bundles or individually in .lingo files. The file structure follows the following format:
+Tenet Bundles are groups of related tenets that can usefully be applied to new projects, or serve as exemplars for the CodeLingo community.
 
-```
-<owner>/
-  <bundle>/
-    <tenet>/
-      .lingo
-      [example files...]
-```
+Bundles using a single language are in that language's directory, cross domain bundles have their own directories.
 
-The owner corresponds to a CodeLingo user account name (you can sign up at codelingo.io). To land code you must have permissions to push to the owner directory.
+## Writing a bundle
 
-Tenet bundles are collections of Tenets grouped by theme: usually language, stack or company. Each Tenet in the bundle is within it's own folder, it is important that the name of the folder match the name of the Tenet in the .lingo file.
-
-Tenets are activated by Flows. To test an individual Tenet, cd into it's folder and run a Flow which activates any bots specified in the Tenet. A common bot is codelingo/review which can be activated by running the review Flow. To run the review flow, run the following command within this repository: `lingo review -i`.
+Bundles have a README to explain their purpose with an ideas section for tenets yet to be implemented. Each tenet should have an associated src file (or other example of queried domain) and an expected output at `./testdata/<tenet_name>.<language_extension>` and `./testdata/<tenet_name>.json` respectively.
+<!-- TODO: build simple  `lingo test-tenet <dir>` command -->
