@@ -116,6 +116,7 @@ func writeLexMD(data *lexInfo) error {
 	}
 
 	outPath := data.OutPath + "/README.md"
+	// outPath := "./README.md"
 	data.Facts = facts
 	return writeFile(os.Getenv("GOPATH")+"/src/github.com/codelingo/hub/util/mdgen/template/lexicon.md", outPath, data)
 
