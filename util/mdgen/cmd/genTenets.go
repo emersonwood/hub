@@ -15,7 +15,12 @@
 package cmd
 
 import (
+	"github.com/codelingo/hub/util/mdgen/dataStruct"
+	"github.com/juju/errors"
 	"github.com/spf13/cobra"
+	"io/ioutil"
+	"os"
+	"path/filepath"
 )
 
 // genTenetsCmd represents the genTenets command
@@ -31,17 +36,29 @@ to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
 		tmplPath := "template/tenet.md"
-		outPath := args[0]
+		//outPath := args[0]
 
-		data := struct {
-			FactName string
-		}{
-			FactName: "testTenet",
-		}
-
-		err := writeFile(tmplPath, outPath, data)
+		tenetsRootPath := os.Getenv("GOPATH") + "/src/github.com/codelingo/hub/tenets"
+		result, err := parseTenetsDir(tenetsRootPath)
 		if err != nil {
 			panic(err)
+		}
+		for ownerKey, owner := range result.Owners {
+			for bundleKey, bundle := range owner.Bundles {
+				for tenetKey, _ := range bundle.Tenets {
+					data := dataStruct.Data{
+						Owner:  ownerKey,
+						Bundle: bundleKey,
+						Tenet:  tenetKey,
+					}
+					outPath := filepath.Join(tenetsRootPath, ownerKey, bundleKey, tenetKey, "README.md")
+
+					err := writeFile(tmplPath, outPath, data)
+					if err != nil {
+						panic(err)
+					}
+				}
+			}
 		}
 	},
 }
@@ -58,4 +75,55 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// genTenetsCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+func parseTenetsDir(dirPath string) (dataStruct.HubTenets, error) {
+	var hubTenets dataStruct.HubTenets
+	if filepath.Base(dirPath) != "tenets" {
+		return hubTenets, errors.New("Please select the correct tenets folder i.e. <...>/hub/tenets")
+	}
+	owners, err := ioutil.ReadDir(dirPath)
+	if err != nil {
+		return hubTenets, errors.Trace(err)
+	}
+
+	hubTenets.Owners = make(map[string]dataStruct.TenetsOwner)
+	for _, owner := range owners {
+		if owner.IsDir() {
+			hubTenets.Owners[owner.Name()] = dataStruct.TenetsOwner{Name: owner.Name()}
+			ownerPath := filepath.Join(dirPath, owner.Name())
+			bundles, err := ioutil.ReadDir(ownerPath)
+			if err != nil {
+				return hubTenets, errors.Trace(err)
+			}
+			tenetsOwner := hubTenets.Owners[owner.Name()]
+			tenetsOwner.Bundles = make(map[string]dataStruct.Bundle)
+
+			for _, bundle := range bundles {
+				if bundle.IsDir() {
+					tenetsOwner.Bundles[bundle.Name()] = dataStruct.Bundle{Name: bundle.Name()}
+					hubTenets.Owners[owner.Name()] = tenetsOwner
+
+					tenetPath := filepath.Join(ownerPath, bundle.Name())
+					tenets, err := ioutil.ReadDir(tenetPath)
+					if err != nil {
+						return hubTenets, errors.Trace(err)
+					}
+					tmpBundle := hubTenets.Owners[owner.Name()].Bundles[bundle.Name()]
+					tmpBundle.Tenets = make(map[string]dataStruct.Tenet)
+
+					for _, tenet := range tenets {
+						if tenet.IsDir() {
+							tmpBundle.Tenets[tenet.Name()] = dataStruct.Tenet{Name: tenet.Name()}
+							hubTenets.Owners[owner.Name()].Bundles[bundle.Name()] = tmpBundle
+
+							hubTenets.Owners[owner.Name()].Bundles[bundle.Name()].Tenets[tenet.Name()] = dataStruct.Tenet{Name: tenet.Name()}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return hubTenets, nil
 }
