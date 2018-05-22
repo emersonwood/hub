@@ -58,6 +58,4 @@ If you have new Tenets or Flows that you would like to contribute to the Hub, pl
 
 
 ---
-<div style="text-align: right">
-  [hello@codelingo.io](mailto:hello@codelingo.io) | [codelingo.io](https://codelingo.io)
-</div>
+[hello@codelingo.io](mailto:hello@codelingo.io) | [codelingo.io](https://codelingo.io)
