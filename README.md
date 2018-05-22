@@ -30,7 +30,12 @@ tenets:
   - import codelingo/go/empty-slice
 ```
 
+All pre-written Tenets are available within this repository, and simply be explored through the file structure. For example, [here is a Tenet for Go](tenets/codelingo/go/goto) that uses of goto
+
 For more information and about writing your own Tenets, please [see the documentation](https://codelingo.io/docs/concepts/tenets/)
+
+
+**[Explore all Tenets](/tenets)**
 
 ## Flows
 Tenets are integrated into your workflow through Flows. Flows are automated and semi-automated processes that rely heavily on bots (integrations) to drive your software development lifecycle. They are completely customizable pipelines and can be configured directly in YAML or via the UI.
