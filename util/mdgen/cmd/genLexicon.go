@@ -15,7 +15,12 @@
 package cmd
 
 import (
+	"fmt"
+	"github.com/codelingo/lingo/service"
+	"github.com/juju/errors"
+	"github.com/marcinwyszynski/directory_tree"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 // genLexiconCmd represents the genLexicon command
@@ -30,18 +35,15 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		tmplPath := "template/lexicon.md"
-		outPath := args[0]
-
-		data := struct {
-			FactName string
-		}{
-			FactName: "textLexicon",
-		}
-
-		err := writeFile(tmplPath, outPath, data)
+		lexs, err := listLexs()
 		if err != nil {
 			panic(err)
+		}
+
+		for _, lex := range lexs {
+			if err := writeLexMD(lex); err != nil {
+				panic(err)
+			}
 		}
 
 	},
@@ -59,4 +61,71 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	// genLexiconCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+}
+
+type lexInfo struct {
+	Typ, Owner, Name, OutPath string
+	Facts                     map[string][]string
+}
+
+func listLexs() ([]*lexInfo, error) {
+
+	lexsPath := os.Getenv("GOPATH") + "/src/github.com/codelingo/hub/lexicons"
+
+	tree, err := directory_tree.NewTree(lexsPath)
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
+	var lexInfos []*lexInfo
+
+	for _, typNode := range tree.Children {
+		if !typNode.Info.IsDir {
+			continue
+		}
+		typName := typNode.Info.Name
+		for _, ownerNode := range typNode.Children {
+			if !ownerNode.Info.IsDir {
+				continue
+			}
+			ownerName := ownerNode.Info.Name
+			for _, lexNode := range ownerNode.Children {
+				if !lexNode.Info.IsDir {
+					continue
+				}
+				lexName := lexNode.Info.Name
+
+				lexInfos = append(lexInfos, &lexInfo{
+					Typ:     typName,
+					Owner:   ownerName,
+					Name:    lexName,
+					OutPath: fmt.Sprintf("%s/%s/%s/%s", lexsPath, typName, ownerName, lexName),
+				})
+			}
+		}
+	}
+	return lexInfos, nil
+}
+
+func writeLexMD(data *lexInfo) error {
+
+	facts, err := listFacts(data.Owner, data.Name)
+	if err != nil {
+		// TODO(waigani) once list facts works for all lexicons, error here
+		fmt.Printf("owner: %s, name: %s, error: %s", data.Owner, data.Name, err.Error())
+	}
+
+	outPath := data.OutPath + "/README.md"
+	data.Facts = facts
+	return writeFile(os.Getenv("GOPATH")+"/src/github.com/codelingo/hub/util/mdgen/template/lexicon.md", outPath, data)
+
+}
+
+func listFacts(owner, lexName string) (map[string][]string, error) {
+	svc, err := service.New()
+	if err != nil {
+		return nil, errors.Trace(err)
+	}
+
+	return svc.ListFacts(owner, lexName, "")
 }
