@@ -1,4 +1,6 @@
-# Tenet Bundles
+# Tenets
+
+Tenets are patterns and anti-patterns for your software stack. All Tenets are grouped in Bundles.
 
 Tenet Bundles are groups of related tenets that can usefully be applied to new projects, or serve as exemplars for the CodeLingo community.
 
