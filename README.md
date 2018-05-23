@@ -55,7 +55,7 @@ Bots are agents that integrate with all your data sources, tools, and services. 
 
 If you have new Tenets or Flows that you would like to contribute to the Hub, please raise a Pull Request directly against the repo.
 
-## All Resources
+## Other Resources
 
 * [Join Slack](https://join.slack.com/t/codelingo/shared_invite/enQtMzY4MzA5ODYwOTYzLWVhMjI1ODU1YmM3ODAxYWUxNWU5ZTI0NWI0MGVkMmUwZDZhNWYxNGRiNWY4ZDY0NzRkMjU5YTRiYWY2N2FlMmU)
 * [Documentation](https://codelingo.io/docs)
