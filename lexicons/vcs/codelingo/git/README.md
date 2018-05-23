@@ -20,8 +20,8 @@
 	      @ review.comment
 	      git.commit
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>git.patch</summary><p>
 
 	#### Example of finding every patch and having a review bot comment on it:
@@ -39,8 +39,8 @@
 	      @ review.comment
 	      git.patch
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>git.repo</summary><p>
 
 	#### Example of finding every repo and having a review bot comment on it:
@@ -58,5 +58,5 @@
 	      @ review.comment
 	      git.repo
 	```
-	</p></details>
-	
+</p></details>
+

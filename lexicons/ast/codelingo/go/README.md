@@ -20,8 +20,8 @@
 	      @ review.comment
 	      go.array_type
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.assign_stmt</summary><p>
 
 	#### Example of finding every assign_stmt and having a review bot comment on it:
@@ -39,8 +39,8 @@
 	      @ review.comment
 	      go.assign_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.bad_decl</summary><p>
 
 	#### Example of finding every bad_decl and having a review bot comment on it:
@@ -58,8 +58,8 @@
 	      @ review.comment
 	      go.bad_decl
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.bad_expr</summary><p>
 
 	#### Example of finding every bad_expr and having a review bot comment on it:
@@ -77,8 +77,8 @@
 	      @ review.comment
 	      go.bad_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.bad_stmt</summary><p>
 
 	#### Example of finding every bad_stmt and having a review bot comment on it:
@@ -96,8 +96,8 @@
 	      @ review.comment
 	      go.bad_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.basic_lit</summary><p>
 
 	#### Example of finding every basic_lit and having a review bot comment on it:
@@ -115,8 +115,8 @@
 	      @ review.comment
 	      go.basic_lit
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.binary_expr</summary><p>
 
 	#### Example of finding every binary_expr and having a review bot comment on it:
@@ -134,8 +134,8 @@
 	      @ review.comment
 	      go.binary_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.block_stmt</summary><p>
 
 	#### Example of finding every block_stmt and having a review bot comment on it:
@@ -153,8 +153,8 @@
 	      @ review.comment
 	      go.block_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.branch_stmt</summary><p>
 
 	#### Example of finding every branch_stmt and having a review bot comment on it:
@@ -172,8 +172,8 @@
 	      @ review.comment
 	      go.branch_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.call_expr</summary><p>
 
 	#### Example of finding every call_expr and having a review bot comment on it:
@@ -191,8 +191,8 @@
 	      @ review.comment
 	      go.call_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.case_clause</summary><p>
 
 	#### Example of finding every case_clause and having a review bot comment on it:
@@ -210,8 +210,8 @@
 	      @ review.comment
 	      go.case_clause
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.chan_type</summary><p>
 
 	#### Example of finding every chan_type and having a review bot comment on it:
@@ -229,8 +229,8 @@
 	      @ review.comment
 	      go.chan_type
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.comm_clause</summary><p>
 
 	#### Example of finding every comm_clause and having a review bot comment on it:
@@ -248,8 +248,8 @@
 	      @ review.comment
 	      go.comm_clause
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.composite_lit</summary><p>
 
 	#### Example of finding every composite_lit and having a review bot comment on it:
@@ -267,8 +267,8 @@
 	      @ review.comment
 	      go.composite_lit
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.decl_stmt</summary><p>
 
 	#### Example of finding every decl_stmt and having a review bot comment on it:
@@ -286,8 +286,8 @@
 	      @ review.comment
 	      go.decl_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.declarations</summary><p>
 
 	#### Example of finding every declarations and having a review bot comment on it:
@@ -305,8 +305,8 @@
 	      @ review.comment
 	      go.declarations
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.defer_stmt</summary><p>
 
 	#### Example of finding every defer_stmt and having a review bot comment on it:
@@ -324,8 +324,8 @@
 	      @ review.comment
 	      go.defer_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.ellipsis</summary><p>
 
 	#### Example of finding every ellipsis and having a review bot comment on it:
@@ -343,8 +343,8 @@
 	      @ review.comment
 	      go.ellipsis
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.empty_stmt</summary><p>
 
 	#### Example of finding every empty_stmt and having a review bot comment on it:
@@ -362,8 +362,8 @@
 	      @ review.comment
 	      go.empty_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.expr_stmt</summary><p>
 
 	#### Example of finding every expr_stmt and having a review bot comment on it:
@@ -381,8 +381,8 @@
 	      @ review.comment
 	      go.expr_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.expressions</summary><p>
 
 	#### Example of finding every expressions and having a review bot comment on it:
@@ -400,8 +400,8 @@
 	      @ review.comment
 	      go.expressions
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.for_stmt</summary><p>
 
 	#### Example of finding every for_stmt and having a review bot comment on it:
@@ -419,8 +419,8 @@
 	      @ review.comment
 	      go.for_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.func_decl</summary><p>
 
 	#### Example of finding every func_decl and having a review bot comment on it:
@@ -438,8 +438,8 @@
 	      @ review.comment
 	      go.func_decl
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.func_lit</summary><p>
 
 	#### Example of finding every func_lit and having a review bot comment on it:
@@ -457,8 +457,8 @@
 	      @ review.comment
 	      go.func_lit
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.func_type</summary><p>
 
 	#### Example of finding every func_type and having a review bot comment on it:
@@ -476,8 +476,8 @@
 	      @ review.comment
 	      go.func_type
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.gen_decl</summary><p>
 
 	#### Example of finding every gen_decl and having a review bot comment on it:
@@ -495,8 +495,8 @@
 	      @ review.comment
 	      go.gen_decl
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.go_stmt</summary><p>
 
 	#### Example of finding every go_stmt and having a review bot comment on it:
@@ -514,8 +514,8 @@
 	      @ review.comment
 	      go.go_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.ident</summary><p>
 
 	#### Example of finding every ident and having a review bot comment on it:
@@ -533,8 +533,8 @@
 	      @ review.comment
 	      go.ident
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.if_stmt</summary><p>
 
 	#### Example of finding every if_stmt and having a review bot comment on it:
@@ -552,8 +552,8 @@
 	      @ review.comment
 	      go.if_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.import_spec</summary><p>
 
 	#### Example of finding every import_spec and having a review bot comment on it:
@@ -571,8 +571,8 @@
 	      @ review.comment
 	      go.import_spec
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.inc_dec_stmt</summary><p>
 
 	#### Example of finding every inc_dec_stmt and having a review bot comment on it:
@@ -590,8 +590,8 @@
 	      @ review.comment
 	      go.inc_dec_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.index_expr</summary><p>
 
 	#### Example of finding every index_expr and having a review bot comment on it:
@@ -609,8 +609,8 @@
 	      @ review.comment
 	      go.index_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.interface_type</summary><p>
 
 	#### Example of finding every interface_type and having a review bot comment on it:
@@ -628,8 +628,8 @@
 	      @ review.comment
 	      go.interface_type
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.key_value_expr</summary><p>
 
 	#### Example of finding every key_value_expr and having a review bot comment on it:
@@ -647,8 +647,8 @@
 	      @ review.comment
 	      go.key_value_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.labeled_stmt</summary><p>
 
 	#### Example of finding every labeled_stmt and having a review bot comment on it:
@@ -666,8 +666,8 @@
 	      @ review.comment
 	      go.labeled_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.map_type</summary><p>
 
 	#### Example of finding every map_type and having a review bot comment on it:
@@ -685,8 +685,8 @@
 	      @ review.comment
 	      go.map_type
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.paren_expr</summary><p>
 
 	#### Example of finding every paren_expr and having a review bot comment on it:
@@ -704,8 +704,8 @@
 	      @ review.comment
 	      go.paren_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.range_stmt</summary><p>
 
 	#### Example of finding every range_stmt and having a review bot comment on it:
@@ -723,8 +723,8 @@
 	      @ review.comment
 	      go.range_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.return_stmt</summary><p>
 
 	#### Example of finding every return_stmt and having a review bot comment on it:
@@ -742,8 +742,8 @@
 	      @ review.comment
 	      go.return_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.select_stmt</summary><p>
 
 	#### Example of finding every select_stmt and having a review bot comment on it:
@@ -761,8 +761,8 @@
 	      @ review.comment
 	      go.select_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.selector_expr</summary><p>
 
 	#### Example of finding every selector_expr and having a review bot comment on it:
@@ -780,8 +780,8 @@
 	      @ review.comment
 	      go.selector_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.send_stmt</summary><p>
 
 	#### Example of finding every send_stmt and having a review bot comment on it:
@@ -799,8 +799,8 @@
 	      @ review.comment
 	      go.send_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.slice_expr</summary><p>
 
 	#### Example of finding every slice_expr and having a review bot comment on it:
@@ -818,8 +818,8 @@
 	      @ review.comment
 	      go.slice_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.specs</summary><p>
 
 	#### Example of finding every specs and having a review bot comment on it:
@@ -837,8 +837,8 @@
 	      @ review.comment
 	      go.specs
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.star_expr</summary><p>
 
 	#### Example of finding every star_expr and having a review bot comment on it:
@@ -856,8 +856,8 @@
 	      @ review.comment
 	      go.star_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.statements</summary><p>
 
 	#### Example of finding every statements and having a review bot comment on it:
@@ -875,8 +875,8 @@
 	      @ review.comment
 	      go.statements
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.struct_type</summary><p>
 
 	#### Example of finding every struct_type and having a review bot comment on it:
@@ -894,8 +894,8 @@
 	      @ review.comment
 	      go.struct_type
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.switch_stmt</summary><p>
 
 	#### Example of finding every switch_stmt and having a review bot comment on it:
@@ -913,8 +913,8 @@
 	      @ review.comment
 	      go.switch_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.type_assert_expr</summary><p>
 
 	#### Example of finding every type_assert_expr and having a review bot comment on it:
@@ -932,8 +932,8 @@
 	      @ review.comment
 	      go.type_assert_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.type_spec</summary><p>
 
 	#### Example of finding every type_spec and having a review bot comment on it:
@@ -951,8 +951,8 @@
 	      @ review.comment
 	      go.type_spec
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.type_switch_stmt</summary><p>
 
 	#### Example of finding every type_switch_stmt and having a review bot comment on it:
@@ -970,8 +970,8 @@
 	      @ review.comment
 	      go.type_switch_stmt
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.unary_expr</summary><p>
 
 	#### Example of finding every unary_expr and having a review bot comment on it:
@@ -989,8 +989,8 @@
 	      @ review.comment
 	      go.unary_expr
 	```
-	</p></details>
-	
+</p></details>
+
   <details><summary>go.value_spec</summary><p>
 
 	#### Example of finding every value_spec and having a review bot comment on it:
@@ -1008,5 +1008,5 @@
 	      @ review.comment
 	      go.value_spec
 	```
-	</p></details>
-	
+</p></details>
+

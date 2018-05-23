@@ -20,6 +20,6 @@
 	      @ review.comment
 	      {{$name}}.{{$fact}}
 	```
-	</p></details>
-	{{end}}
+</p></details>
+{{end}}
 {{end}}
