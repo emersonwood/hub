@@ -1,4 +1,6 @@
-# {{.Tenet}} tenet by {{.Owner}}, part of the {{.Bundle}} bundle
+# {{.Tenet}} 
+
+_by {{.Owner}}, part of their {{.Bundle}} bundle_
 
 
-[Demo](https://dev.codelingo.io/playground/?repo=github.com/codelingo/hub&dir=tenets/{{.Owner}}/{{.Bundle}}/{{.Tenet}}&tenet={{.Owner}}/{{.Bundle}}/{{.Tenet}})
+[Load up in the codelingo.io/playground](https://codelingo.io/playground/?repo=github.com/codelingo/hub&dir=tenets/{{.Owner}}/{{.Bundle}}/{{.Tenet}}&tenet={{.Owner}}/{{.Bundle}}/{{.Tenet}})
