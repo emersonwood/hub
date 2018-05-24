@@ -7,7 +7,7 @@
 
 #### Example of finding every {{$fact}} and having a review bot comment on it:
 
-```{{$name}}
+```yaml
 tenets:
   - name: find_all_{{$fact}}
     doc:  Example query to find all instances of {{$fact}}
@@ -16,7 +16,7 @@ tenets:
 	       comments: This is a {{$fact}}.
 	   query: |
 	     import {{$owner}}/{{$type}}/{{$name}}
-	     
+
 	     @ review.comment
 	     {{$name}}.{{$fact}}
 ```
