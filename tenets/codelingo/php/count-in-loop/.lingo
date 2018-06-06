@@ -1,0 +1,20 @@
+tenets:
+  - name: count-in-loop
+    doc: Using count/sizeof in loops expressions is considered bad practice https://github.com/phpmd/phpmd/blob/master/src/site/rst/rules/design.rst#countinloopexpression.
+    bots:
+      codelingo/review:
+        comments: Sizeof and Count should not be used in loops.
+    query: |
+      import codelingo/ast/php
+
+      @ review.comment
+      php.stmt_while({depth: any}):
+        php.expr_funccall({depth: any}):
+          any_of:
+            php.name_fullyqualified:
+              name: "sizeof"
+            php.name_fullyqualified:
+              name: "count"
+          # php.stmt_for:
+          # php.stmt_do:
+
