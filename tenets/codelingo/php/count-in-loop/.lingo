@@ -7,14 +7,30 @@ tenets:
     query: |
       import codelingo/ast/php
 
-      @ review.comment
-      php.stmt_while({depth: any}):
-        php.expr_funccall({depth: any}):
-          any_of:
-            php.name_fullyqualified:
-              name: "sizeof"
-            php.name_fullyqualified:
-              name: "count"
-          # php.stmt_for:
-          # php.stmt_do:
+      php.file({depth: any}):
+        any_of:
+          @ review.comment
+          php.stmt_while({depth: any}):
+            php.expr_funccall({depth: any}):
+              any_of:
+                php.name_fullyqualified:
+                  name: "sizeof"
+                php.name_fullyqualified:
+                  name: "count"
+          @ review.comment
+          php.stmt_for({depth: any}):
+            php.expr_funccall({depth: any}):
+              any_of:
+                php.name_fullyqualified:
+                  name: "sizeof"
+                php.name_fullyqualified:
+                  name: "count"
+          @ review.comment
+          php.stmt_do({depth: any}):
+            php.expr_funccall({depth: any}):
+              any_of:
+                php.name_fullyqualified:
+                  name: "sizeof"
+                php.name_fullyqualified:
+                  name: "count"
 
