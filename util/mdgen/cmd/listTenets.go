@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 
 	"github.com/codelingo/hub/util/mdgen/dataStruct"
 	"github.com/spf13/cobra"
@@ -47,6 +48,7 @@ effects and output is json of the form:
 		}
 
 		tenetList := buildTenetList(result)
+		sort.Sort(byUserPriority(tenetList))
 
 		output, err := json.MarshalIndent(tenetList, "  ", "  ")
 		if err != nil {
@@ -57,11 +59,31 @@ effects and output is json of the form:
 	},
 }
 
+type byUserPriority []*TenetDesc
+
+func (list byUserPriority) Len() int {
+	return len(list)
+}
+func (list byUserPriority) Swap(i, j int) {
+	list[i], list[j] = list[j], list[i]
+}
+func (list byUserPriority) Less(i, j int) bool {
+	// Tenets are already grouped by owner due to traversal, and we priorities codelingo tenets
+	if list[i].owner == "codelingo" {
+		return true
+	} else if list[j].owner == "codelingo" {
+		return false
+	}
+	return true
+}
+
+// TenetDesc is a description of a tenet that can be used by the hub
 type TenetDesc struct {
 	Name  string `json:"name"`
 	Repo  string `json:"repo"`
 	Dir   string `json:"dir"`
 	Tenet string `json:"tenet"`
+	owner string
 }
 
 func buildTenetList(hubtenets dataStruct.HubTenets) []*TenetDesc {
@@ -75,8 +97,9 @@ func buildTenetList(hubtenets dataStruct.HubTenets) []*TenetDesc {
 				tenetList = append(tenetList, &TenetDesc{
 					Name:  "codelingo/hub - " + tenetKey,
 					Repo:  "github.com/codelingo/hub",
-					Dir:   "tenets" + tenetName,
+					Dir:   "tenets/" + tenetName,
 					Tenet: tenetName,
+					owner: ownerKey,
 				})
 			}
 		}
