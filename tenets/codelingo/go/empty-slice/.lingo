@@ -10,9 +10,8 @@ tenets:
   
       @ review.comment
       go.assign_stmt({depth: any}):
-        token: ":="
+        tok: 47 # Specifies that the assignemt is a definition, ie, uses ":=" https://golang.org/pkg/go/token/#DEFINE
         go.rhs:
           go.composite_lit:
-            go.elts:
-              exclude:
-                go.element
+            child_count: 1
+            go.array_type
