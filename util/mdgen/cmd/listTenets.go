@@ -67,14 +67,24 @@ func (list byUserPriority) Len() int {
 func (list byUserPriority) Swap(i, j int) {
 	list[i], list[j] = list[j], list[i]
 }
+
 func (list byUserPriority) Less(i, j int) bool {
 	// Tenets are already grouped by owner due to traversal, and we priorities codelingo tenets
-	if list[i].owner == "codelingo" {
-		return true
-	} else if list[j].owner == "codelingo" {
-		return false
+	priorityI := priorityByOwner(list[i].owner)
+	priorityJ := priorityByOwner(list[j].owner)
+	return priorityI > priorityJ
+}
+
+func priorityByOwner(owner string) int {
+	if priority, ok := priorities[owner]; ok {
+		return priority
 	}
-	return true
+	return 0
+}
+
+var priorities = map[string]int{
+	"codelingo": 1,
+	"west":      -1,
 }
 
 // TenetDesc is a description of a tenet that can be used by the hub
