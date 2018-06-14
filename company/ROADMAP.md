@@ -5,7 +5,7 @@ This document defines the public roadmap for CodeLingo.
 A platform for augmenting software development processes.
 
 ## Mid term
-Tools for defining, reporting, and enforcing code quality patterns, Specifically in best practices, code style, security and debugging.
+Tools for defining, reporting, and enforcing code quality patterns, specifically in best practices, code style, security and debugging.
 
 
 **Epic: Defining and Importing Patterns**
