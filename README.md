@@ -3,10 +3,10 @@ _Find and Share CodeLingo Resources_
 
 The CodeLingo Hub is an Open source collection of CodeLingo Resources.
 
-* Lexicons - Libraries for DSLs, such as a language AST or VCS.
+* Lexicons - Libraries for DSLs, such as a language AST or VCS. Provides facts for queries.
 * Tenets -  Patterns and anti-patterns in your software stack written in CLQL.
 * Flows - pipelines for process augmentation and automation.
-*  Bots - agents that intergrate with your services and data stores.
+* Bots - agents that integrate with your services and data stores.
 
 If you are first getting started with CodeLingo please [check out the getting started guide](https://codelingo.io/docs/getting-started).
 
