@@ -1,7 +1,12 @@
 # CodeLingo Resource Hub
 _Find and Share CodeLingo Resources_
 
-The CodeLingo Hub is an Open source collection of CodeLingo Lexicons,Tenets, Flows, and Bots to be used with the CodeLingo platform.
+The CodeLingo Hub is an Open source collection of CodeLingo Resources.
+
+* Lexicons - Libraries for DSLs, such as a language AST or VCS. Provides facts for queries.
+* Tenets -  Patterns and anti-patterns in your software stack written in CLQL.
+* Flows - pipelines for process augmentation and automation.
+* Bots - agents that integrate with your services and data stores.
 
 If you are first getting started with CodeLingo please [check out the getting started guide](https://codelingo.io/docs/getting-started).
 
@@ -57,6 +62,7 @@ If you have new Tenets or Flows that you would like to contribute to the Hub, pl
 
 ## Other Resources
 
+* [Roadmap](/company/ROADMAP.md)
 * [Join Slack](https://join.slack.com/t/codelingo/shared_invite/enQtMzY4MzA5ODYwOTYzLWVhMjI1ODU1YmM3ODAxYWUxNWU5ZTI0NWI0MGVkMmUwZDZhNWYxNGRiNWY4ZDY0NzRkMjU5YTRiYWY2N2FlMmU)
 * [Documentation](https://codelingo.io/docs)
 * [IDE Plugins](https://github.com/codelingo/ideplugins)
