@@ -10,10 +10,15 @@ Tools for defining, reporting, and enforcing code quality patterns, specifically
 
 **Epic: Defining and Importing Patterns**
 
-* [ ] AST Query language  (php, golang, python, c++, C#)
+* [ ] AST Query language
+	* [ ] php
+	* [ ] golang
+	* [ ] python
+	* [ ] c++
+	* [ ] C#
 * [ ] CLI tool & Basic build integration
 * [ ] Best practice bundles for specific frameworks and categories
-* [ ] Hub
+* [ ] Hub: A resource hub to find and share CodeLingo code quality tools.
 
 **Epic: Reporting and tools integration**
 
@@ -24,7 +29,9 @@ Tools for defining, reporting, and enforcing code quality patterns, specifically
 
 **Epic: Authorship**
 
-* [ ] IDE Support (VSCode, Sublime)
+* [ ] IDE Support 
+	* [ ] VSCode
+	* [ ] Sublime
 * [ ] VCS Libraries
 * [ ] Authorship reporting
 
@@ -32,11 +39,10 @@ Tools for defining, reporting, and enforcing code quality patterns, specifically
 
 * [ ] Open Source
 * [ ] Lexicon SDK
-* [ ] Community
+* [ ] Community - Forums, Badging
 
 **Epic: Process Integration**
 
 * [ ] Dashboarding
 * [ ] Code Review integration
 * [ ] Custom Flows
-* [ ] Paid Plans
