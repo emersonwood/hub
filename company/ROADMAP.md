@@ -11,12 +11,13 @@ Tools for defining, reporting, and enforcing code quality patterns, specifically
 **Epic: Defining and Importing Patterns**
 
 * [ ] AST Query language
-	* [ ] php
-	* [ ] golang
-	* [ ] python
-	* [ ] c++
-	* [ ] C#
-* [ ] CLI tool & Basic build integration
+	* [x] php
+	* [x] golang
+	* [x] python
+	* [x] C++
+	* [x] C#
+	* [ ] Javascript
+* [x] CLI tool & Basic build integration
 * [ ] Best practice bundles for specific frameworks and categories
 * [ ] Hub: A resource hub to find and share CodeLingo code quality tools.
 
@@ -38,7 +39,7 @@ Tools for defining, reporting, and enforcing code quality patterns, specifically
 **Epic: Contributing**
 
 * [ ] Open Source
-* [ ] Lexicon SDK
+* [x] Lexicon SDK
 * [ ] Community - Forums, Badging
 
 **Epic: Process Integration**
