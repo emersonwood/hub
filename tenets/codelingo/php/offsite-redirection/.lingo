@@ -1,0 +1,40 @@
+tenets:
+  - name: use-offsite-check
+    doc: Ensures that any redirect with a value that depends directly on value from an http request is validated for offsite redirection.
+    bots:
+      codelingo/review:
+        comments: This redirect url depends on user input and should be validated with offsiteCheck().
+    query: |
+      import codelingo/ast/php
+
+      php.stmt_classmethod({depth: any}):
+        # Find value passed in by http request
+        php.expr_assign({depth: any}):
+          php.expr_variable:
+            name: $urlVar
+          php.expr_methodcall:
+            name: "get"
+            php.expr_propertyfetch:
+              name: "query"
+              php.expr_variable:
+                name: "request"
+        # Find unckecked redirect that uses the $urlVar
+        php.expr_methodcall({depth: any}):
+          name: "redirect"
+          exclude:
+            php.expr_funccall({depth: any}):
+              php.name_fullyqualified:
+                name: "offsiteCheck"
+          php.arg({depth: any}):
+            @ review.comment
+            php.expr_variable({depth:any}):
+              name: $urlVar
+
+
+  # - name: whitelist-offsite-check
+  #   doc: Explicitly use a whitelist strategy for validating offsite urls. This tenet express as pattern, rather than an anti-pattern.
+  #   bots:
+  #     codelingo/review:
+  #       comments: This open redirect check function correctly uses a whitelist strategy.
+  #   query: |
+  #     import codelingo/ast/php
