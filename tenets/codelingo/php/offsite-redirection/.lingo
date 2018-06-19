@@ -29,12 +29,3 @@ tenets:
             @ review.comment
             php.expr_variable({depth:any}):
               name: $urlVar
-
-
-  # - name: whitelist-offsite-check
-  #   doc: Explicitly use a whitelist strategy for validating offsite urls. This tenet express as pattern, rather than an anti-pattern.
-  #   bots:
-  #     codelingo/review:
-  #       comments: This open redirect check function correctly uses a whitelist strategy.
-  #   query: |
-  #     import codelingo/ast/php
