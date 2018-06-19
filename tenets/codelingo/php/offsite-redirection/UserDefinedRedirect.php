@@ -56,7 +56,7 @@ function offsiteCheck($url) {
         $urlParts = parse_url($url);
     }
     if ($url && !preg_match('/logout/', $url) && !isset($urlParts['host']) && substr(str_replace('\\', '', $url), 0, 2) !== '//' && substr($url, 0, 2) !== '\\\\') {
-        // the url wasn't and offsite redirect
+        // the url wasn't an offsite redirect
         echo $url . "\n";
     } else {
         // suspect url, forward to the index page
