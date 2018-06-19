@@ -1,4 +1,4 @@
-package testdata
+package main
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ type ClientData struct {
 	A string
 }
 
-type ClientData struct {
+type ServerData struct {
 	A string
 }
 
@@ -21,10 +21,17 @@ type Server struct {
 	A string
 }
 
+func main() {
+	err := SendData()
+	if err != nil {
+		panic(err.Error())
+	}
+}
+
 func SendData() error {
 	myServer := &Server{}
 
-	data, err := MakeJSONRequest(myServer)
+	data, err := MakeValidJSONRequest(myServer)
 	if err != nil {
 		return errors.Trace(err)
 	}

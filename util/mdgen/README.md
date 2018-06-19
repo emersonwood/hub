@@ -1,6 +1,8 @@
-# codelingo/cpp ast lexicon
+# mdgen
 
+To generate all md files:
 
-
-##  cpp facts
- 
+```bash
+$ cd $GOPATH/src/github.com/codelingo/hub/util/mdgen
+$ go run main.go genAll
+```
