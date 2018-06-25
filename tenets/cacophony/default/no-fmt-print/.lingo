@@ -1,5 +1,5 @@
 tenets:
-  - name: no-fmt-print*
+  - name: no-fmt-printx
     doc: |
       Find uses fmt.Print* (eg. Print, Println, Printf).
 
