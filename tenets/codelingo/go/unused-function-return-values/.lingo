@@ -1,0 +1,13 @@
+tenets:
+  - name: unused-function-return-values
+    doc: |
+      Identifies function calls that return values but have not been used.
+      A function call is considered used when:
+        1. It's values are assinged to variables or _
+        2. It's values are returned to
+        3. Functions are called on it's value(s)
+    bots:
+      codelingo/review:
+        comments: This function returns values that aren't being used.
+    query: |
+      import codelingo/ast/go
