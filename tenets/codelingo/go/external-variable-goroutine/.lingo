@@ -1,0 +1,45 @@
+tenets:
+  - name: external-variables-goroutine
+    doc: |
+      Find go routines that reference variables outside of their scope.
+
+      The state of the variable may be changed by any other routine at any time, leading to unpredicatable and
+      unexpected behaviour. Any variables reference by Go routines should be passed in as parameters to the routine.
+    bots:
+      codelingo/review:
+        comments: This variable is outside the scope of the Go routine
+    query: |
+      import (
+        codelingo/ast/go
+      )
+
+      go.go_stmt({depth: any}):
+        go.func_lit({depth: any}):
+          go.func_type:
+            go.field_list:
+              go.field:
+                go.names:
+                  go.ident:
+                    name: $argName  # Get the names of all arguments passed to the go func
+          go.block_stmt:
+            any_of:
+              # Out of scope variables passed into a function
+              go.args({depth: any}):
+                @ review.comment
+                go.ident({depth: any}):
+                  exclude:
+                    name: $argName
+              # Out of scope variables being re-assigned
+              go.assign_stmt({depth: any}):
+                go.lhs:
+                  @ review.comment
+                  go.ident:
+                    exclude:
+                      name: $argName
+              # Calling properties / functions on out of scope variables
+              go.selector_expr({depth: any}):
+                @ review.comment
+                go.ident:
+                  exclude:
+                    name: $argName  # TODO: why is this not working? do not use yet
+
