@@ -1,0 +1,28 @@
+tenets:
+  - name: calling-nil-errors
+    doc: |
+      Identifies Error() calls on potentially nil errors.
+    bots:
+      codelingo/review:
+        comments: This error could be nil. Make sure that it's non-nil before calling Error() on it.
+    query: |
+      import codelingo/ast/go
+
+      go.element({depth: any}):
+        exclude:
+          go.if_stmt({depth: any}):
+            go.binary_expr:
+              go.ident:
+                name: "err"
+              go.ident:
+                name: "nil"
+                include:
+                  @ review.comment
+                  go.call_expr({depth: any}):
+                    go.selector_expr:
+                      go.ident:
+                        name: "err"
+                        type: "error"
+                      go.ident:
+                        name: "Error"
+
